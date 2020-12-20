@@ -1,5 +1,6 @@
 package com.example.nowcoder;
 
+
 /**
  * 反转链表
  * @link https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=190&&tqId=35203&rp=1&ru=/activity/oj&qru=/ta/job-code-high-rd/question-ranking
@@ -17,6 +18,16 @@ public class NowCoder_NC78 {
         System.out.println(listNode);
     }
 }
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+    }
+}
+
 class Solution_NC78{
 
     // self committed
