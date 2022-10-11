@@ -7,16 +7,14 @@ package com.example.leetcode;
  */
 public class LeetCode_L9_PalindromeNumber {
     public static void main(String[] args) {
-        Solution_L9 solution_l9 = new Solution_L9();
-//        System.out.println(solution_l9.isPalindrome(121));
+     
+//        System.out.println(isPalindrome(121));
 
-        System.out.println(solution_l9.isPalindromeN1(12321));
+        System.out.println(isPalindromeN1(12321));
     }
-}
 
-class Solution_L9 {
     //Runtime 7ms,Memory 38.5MB
-    public boolean isPalindrome(int x) {
+    public static boolean isPalindrome(int x) {
         String s = String.valueOf(x);
         int left = 0, right = s.length() - 1;
         while (left < right) {
@@ -28,7 +26,7 @@ class Solution_L9 {
     }
 
     //Runtime 6ms,Memory 37.9MB
-    public boolean isPalindromeN1(int x) { //12321
+    public static boolean isPalindromeN1(int x) { //12321
         if (x < 0 || (x % 10 == 0 && x != 0)) {
             return false;
         }

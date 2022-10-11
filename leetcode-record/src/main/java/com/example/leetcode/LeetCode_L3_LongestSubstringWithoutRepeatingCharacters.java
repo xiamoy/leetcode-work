@@ -13,24 +13,22 @@ import java.util.Set;
 public class LeetCode_L3_LongestSubstringWithoutRepeatingCharacters {
 
     public static void main(String[] args) {
-        Solution_L3 solution_l3 = new Solution_L3();
+        
         String s = "abcabcbb";
-//        System.out.println(solution_l3.lengthOfLongestSubstring(s));//3
-//        System.out.println(solution_l3.lengthOfLongestSubstring("bbbbb"));//1
-//        System.out.println(solution_l3.lengthOfLongestSubstring("pwwkew"));//3
-//        System.out.println(solution_l3.lengthOfLongestSubstring("au"));//2
+//        System.out.println(lengthOfLongestSubstring(s));//3
+//        System.out.println(lengthOfLongestSubstring("bbbbb"));//1
+//        System.out.println(lengthOfLongestSubstring("pwwkew"));//3
+//        System.out.println(lengthOfLongestSubstring("au"));//2
 
-        System.out.println(solution_l3.lengthOfLongestSubstringN1(s));//3
-        System.out.println(solution_l3.lengthOfLongestSubstringN1("bbbbb"));//1
-        System.out.println(solution_l3.lengthOfLongestSubstringN1("pwwkew"));//3
-        System.out.println(solution_l3.lengthOfLongestSubstringN1("au"));//2
+        System.out.println(lengthOfLongestSubstringN1(s));//3
+        System.out.println(lengthOfLongestSubstringN1("bbbbb"));//1
+        System.out.println(lengthOfLongestSubstringN1("pwwkew"));//3
+        System.out.println(lengthOfLongestSubstringN1("au"));//2
 
     }
-}
 
-class Solution_L3 {
     //Runtime 1736ms,Memory 39.5MB
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
         if (s.length() <= 1) {
             return s.length();
         }
@@ -49,7 +47,7 @@ class Solution_L3 {
     }
 
     //Others solutions
-    public int lengthOfLongestSubstringN1(String s) {
+    public static int lengthOfLongestSubstringN1(String s) {
 
         int n = s.length();
         //no duplicated

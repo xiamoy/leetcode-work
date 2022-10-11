@@ -2,25 +2,23 @@ package com.example.leetcode;
 
 public class LeetCode_L10_RegularExpressionMatching {
     public static void main(String[] args) {
-        Solution_L10 solution_l10 = new Solution_L10();
-        System.out.println(solution_l10.isMatch("aa", "a"));//false
-        System.out.println(solution_l10.isMatch("aa", "a*"));//true
-        System.out.println(solution_l10.isMatch("ab", ".*"));//true
-        System.out.println(solution_l10.isMatch("aab", "c*a*b"));//true
-        System.out.println(solution_l10.isMatch("caab", "c*a*b"));//true
+       
+        System.out.println(isMatch("aa", "a"));//false
+        System.out.println(isMatch("aa", "a*"));//true
+        System.out.println(isMatch("ab", ".*"));//true
+        System.out.println(isMatch("aab", "c*a*b"));//true
+        System.out.println(isMatch("caab", "c*a*b"));//true
 
-        System.out.println(solution_l10.isMatch("mississippi", "mis*is*p*."));//false
-        System.out.println(solution_l10.isMatch("mississippi", "mis*is*ip*."));//true
-        System.out.println(solution_l10.isMatch("ab", ".*c"));//false
-        System.out.println(solution_l10.isMatch("aaa", "a*a"));//true
+        System.out.println(isMatch("mississippi", "mis*is*p*."));//false
+        System.out.println(isMatch("mississippi", "mis*is*ip*."));//true
+        System.out.println(isMatch("ab", ".*c"));//false
+        System.out.println(isMatch("aaa", "a*a"));//true
 
     }
-}
 
-class Solution_L10 {
 
     //Hard Runtime: 67 ms, faster than 15.82% Memory Usage: 39.5 MB, less than 17.76%
-    public boolean isMatch(String s, String p) {
+    public static boolean isMatch(String s, String p) {
         if (p.isEmpty()) {
             return s.isEmpty();
         }
@@ -38,7 +36,7 @@ class Solution_L10 {
 
     }
 
-    public boolean isMatchN1(String s, String p) {
+    public static boolean isMatchN1(String s, String p) {
         if (".*".equals(p)) {
             return true;
         }
@@ -69,7 +67,7 @@ class Solution_L10 {
         return s1 >= sLen && p1 >= pLen;
     }
 
-    public boolean isMatchN2(String s, String p) {
+    public static boolean isMatchN2(String s, String p) {
         if (!p.contains(".") && !p.contains("*")) {
             return s.equals(p);
         }

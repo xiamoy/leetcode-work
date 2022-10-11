@@ -4,14 +4,11 @@ import java.util.Stack;
 
 public class LeetCode_L20_ValidParentheses {
     public static void main(String[] args) {
-        Solution_L20 solution_l20 = new Solution_L20();
-
-        System.out.println(solution_l20.isValid("{[]}"));
+      
+        System.out.println(isValid("{[]}"));
     }
-}
 
-class Solution_L20 {
-    public boolean isValid(String s) {
+    public static boolean isValid(String s) {
         char[] chars = s.toCharArray();
         Stack<Character> stack = new Stack<>();
 
@@ -36,7 +33,7 @@ class Solution_L20 {
     }
 
     //[{()}]
-//    public boolean isValid2(String s) {
+//    public static boolean isValid2(String s) {
 //
 
 //        char[] chars = s.toCharArray();
