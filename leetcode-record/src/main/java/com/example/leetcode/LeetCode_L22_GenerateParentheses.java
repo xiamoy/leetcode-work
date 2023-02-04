@@ -1,9 +1,7 @@
 package com.example.leetcode;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * 22. Generate Parentheses
@@ -13,31 +11,29 @@ import java.util.Set;
 public class LeetCode_L22_GenerateParentheses {
 
     public static void main(String[] args) {
-        Solution_L22 solution_l22 = new Solution_L22();
-        List<String> list = solution_l22.generateParenthesis(4);
+
+        List<String> list = generateParenthesis(2);
         System.out.println(list);
-    }
-}
-
-class Solution_L22 {
-    public List<String> generateParenthesis(int n) {
-        //TODO wrong answer
-        Set<String> set = generateParenthesis("", n);
-        return new ArrayList<>(set);
+        System.out.println(generateParenthesis(3));
     }
 
-    public Set<String> generateParenthesis(String current, int n) {
-        Set<String> list = new HashSet<>();
-        String start = "()";
-        if (current.length() == 2 * n) {
-            list.add(current);
-            return list;
+    public static List<String> generateParenthesis(int n) {
+        List<String> res = new ArrayList<>();
+        backtrack(n, n, "", res);
+        return res;
+    }
+
+    public static void backtrack(int left, int right, String temp, List<String> list) {
+        if (left == 0 && right == 0) {
+            list.add(temp);
+            return;
         }
-
-        list.addAll(generateParenthesis(start + current, n));
-        list.addAll(generateParenthesis("(" + current + ")", n));
-        list.addAll(generateParenthesis(current + start, n));
-        return list;
-
+        if (left > 0) {
+            backtrack(left - 1, right, temp + "(", list);
+        }
+        if (left < right) {
+            backtrack(left, right - 1, temp + ")", list);
+        }
     }
 }
+

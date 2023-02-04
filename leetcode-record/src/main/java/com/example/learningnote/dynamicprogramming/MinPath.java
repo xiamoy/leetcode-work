@@ -4,7 +4,7 @@ public class MinPath {
     public static void main(String[] args) {
         int[][] m = {{1, 3, 5, 9}, {8, 1, 3, 4}, {5, 0, 6, 1}, {8, 8, 4, 0}};
 
-//        int walk = walk(m, 0, 0); // 21
+//        int walk = walk(leastLeftAtBottom, 0, 0); // 21
         int walkDpRes = walkDp(m); // 21
         System.out.println(walkDpRes);
 

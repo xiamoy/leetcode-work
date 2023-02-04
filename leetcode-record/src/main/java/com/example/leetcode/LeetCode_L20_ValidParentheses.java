@@ -1,5 +1,7 @@
 package com.example.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class LeetCode_L20_ValidParentheses {
@@ -8,7 +10,8 @@ public class LeetCode_L20_ValidParentheses {
         System.out.println(isValid("{[]}"));
     }
 
-    public static boolean isValid(String s) {
+    //1ms, 37.5M
+    public static boolean isValid2(String s) {
         char[] chars = s.toCharArray();
         Stack<Character> stack = new Stack<>();
 
@@ -32,43 +35,30 @@ public class LeetCode_L20_ValidParentheses {
         return stack.isEmpty();
     }
 
-    //[{()}]
-//    public static boolean isValid2(String s) {
-//
+    //3ms, 42.2M
+    public static boolean isValid(String s) {
+        if (s == null || s.length() == 0) {
+            return false;
+        }
+        Stack<Character> stack = new Stack<>();
+        Map<Character, Character> map = new HashMap<>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
+        int i = 0;
+        while (i < s.length()) {
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                stack.push(map.get(c));
+            } else {
+                if (stack.isEmpty() || c != stack.pop()) {
+                    return false;
+                }
+            }
+            i++;
+        }
+        return stack.isEmpty();
 
-//        char[] chars = s.toCharArray();
-//        if (s.length()==0){
-//            return true;
-//        }
-//        int left=0,right=left+1;
-//        char expected='\0';
-//        while (right<chars.length){
-//            if (chars[left] == '(') {
-//                expected=')';
-//            } else if (chars[left] == '[') {
-//               expected=']';
-//            } else  if (chars[left] == '{') {
-//                expected='}';
-//            }
-//            if (chars[right]==expected){
-//                if (right==chars.length-1){
-//                    return true;
-//                }else if(right<chars.length-1){
-//                    left=right+1;
-//                    right=left+1;
-//                    if (right==chars.length){
-//                        return false;
-//                    }
-//                }else{
-//                    right++;
-//                    left--;
-//                }
-//            }else{
-//                left++;
-//                right=left+1;
-//            }
-//        }
-//
-//        return left==-1;
-//    }
+    }
+
 }
